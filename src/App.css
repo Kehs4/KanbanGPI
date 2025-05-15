@@ -8,21 +8,21 @@
 }
 
 body {
-    background-image: url(/public/homebackground4.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    background-color: rgb(10, 10, 22);
 }
 
 .container-header {
-    background-color: rgb(255, 255, 255);
-    max-width: 90%;
+    background-color: rgba(224, 224, 224, 0.884);
+    max-width: 95%;
     margin: 15px auto;
-    height: 60px;
-    border-radius: 6px;
-    border: 1px solid rgb(53, 53, 53);
-    border-style: double;
+    height: 70px;
+    border-radius: 8px;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
 .container-title {
@@ -31,63 +31,71 @@ body {
     align-items: center;
     height: 100%;
     gap: 15px;
-
 }
 
 .title-header {
     color: rgb(0, 0, 0);
     font-size: 2rem;
     text-align: center;
-    font-weight: 300;
-    text-shadow: 0px 1px 10px rgb(121, 118, 118);
+    font-weight: 200;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    margin-left: 10px;
 }
+
 
 .container-gpi {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 30dvh;
+    margin-top: 30vh;
     gap: 15px;
 }
 
 .title-gpi {
-    color: white;
+    color: #ffffff;
     font-size: 2.5rem;
     text-align: center;
     font-weight: 600;
-    font-style: italic;
-    text-shadow: 0px 1px 10px rgb(59, 59, 59);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding-bottom: 5px;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-enter {
-    background-color: white;
-    border: 1px solid black;
-    color: black;
-    padding: 16px 35px;
+    background: #ffffff;
+    border: none;
+    color: #000000;
+    padding: 12px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 16px;
     margin: 4px 2px;
-    border-radius: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #000000;
 }
 
 .btn-enter:hover {
-    background-color: black;
+    background: #000000;
     color: white;
-    border: 1px solid white;
+    border: 1px solid #ffffff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
     cursor: pointer;
-    transform: scale(1.05);
 }
 
 .footer-vertis {
-    position: absolute;
     padding: 10px;
-    width: 100%;
     margin: auto;
     font-style: italic;
     bottom: 0;
+    margin-top: 160px;
     background-color: rgba(224, 224, 224, 0.884);
     a {
         text-decoration: none;

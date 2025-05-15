@@ -7,9 +7,10 @@ function Home() {
 
   return (
     <>
+
       <div className='container-header'>
           <div className='container-title'>
-            <img src="/public/vertis.png" width={60} height={50}/>
+            <img src="/public/vertislogo2.png" width={50} height={50}/>
               <h1 className='title-header'>GPI - Vertis</h1>
           </div>
       </div>

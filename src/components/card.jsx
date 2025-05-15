@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDrag } from "react-dnd";
 
 const Card = ({ card, column, onClick }) => {
@@ -9,6 +9,20 @@ const Card = ({ card, column, onClick }) => {
       isDragging: monitor.isDragging(),
     }),
   });
+
+  // State to manage update history
+  const [updateHistory, setUpdateHistory] = useState(card.updates || []);
+
+  // Function to simulate an update
+  const handleUpdate = (updatedBy) => {
+    const now = new Date();
+    const newUpdate = {
+      date: now.toLocaleDateString(),
+      time: now.toLocaleTimeString(),
+      updatedBy,
+    };
+    setUpdateHistory([...updateHistory, newUpdate]);
+  };
 
   return (
     <div
@@ -26,6 +40,10 @@ const Card = ({ card, column, onClick }) => {
         </small>
       )}
       <small>Status: {card.status}</small>
+      
+      {/* Display creation date */}
+      <small>Criado às: {card.createdAt}</small>
+
     </div>
   );
 };

@@ -14,28 +14,27 @@
 }
 
 body {
-  background-color: #f4f4f4;
   margin: 0;
 }
 
 .header-title {
   display: flex;
+  background-color: rgba(224, 224, 224, 0.884);
   align-items: center;
+  height: 70px;
   margin: auto;
   justify-content: center;
   margin-top: 15px;
+  width: 95%;
+  border-radius: 8px;
 }
+
 .title-page {
   text-align: center;
-  font-weight: 300;
+  font-weight: 200;
   letter-spacing: -0.5px;
-  color: #ffffff;
-  background: linear-gradient(90deg, #c300ff 0%, #7e47ff 100%);
-  padding: 15px 0;
-  box-shadow: 1px 5px 15px #8400ff;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  width: 95%;
+  color: #000000;
+  margin-left: 10px;
 }
 
 .board {
@@ -63,7 +62,7 @@ body {
 }
 
 .column-title {
-  font-weight: 300;
+  font-weight: 500;
   word-spacing: -2px;
   text-align: center;
   text-shadow: 1px 2px 5px #868686a2;
@@ -198,13 +197,45 @@ body {
 
 .task-options {
   display: flex;
-  flex-direction: column;
-  left: 0px;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-around;
 }
 
-.task-options .delete-task-btn {
-  align-self: flex-end;
+.task-edit-btn {
+  background: #ff7300;
+  color: #fff;
+  min-width: 150px;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 48px;
+  margin-top: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.task-edit-btn:hover {
+  background: #ff5e00;
+}
+
+.delete-task-btn {
+  margin-top: 5px;
+  min-width: 150px;
+  padding: 8px 48px;
+  background-color: #ff3b3b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.delete-task-btn:hover {
+  background-color: #8b0000;
+  color: white;
 }
 
 .modal input {
@@ -253,23 +284,6 @@ body {
   outline: 1px solid var(--black-color);
 }
 
-.task-edit-btn {
-  background: #ff7300;
-  min-width: 180px;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 18px;
-  margin-top: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.2s;
-}
-
-.task-edit-btn:hover {
-  background: #ff5e00;
-}
-
 .task-save-btn {
   background: #ff7300;
   color: #fff;
@@ -314,6 +328,49 @@ body {
   word-break: break-word;
 }
 
+.comment-author-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 10px;
+  text-transform: uppercase;
+}
+
+.comment-author {
+  font-weight: bold;
+  margin: 0;
+  color: var(--black-color);
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-date {
+  font-size: 0.85rem;
+  color: var(--gray-color);
+  margin: 2px 0 5px 0;
+}
+
+.comment-text {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--black-color);
+}
+
 .modal-comment-btn {
   background: #ff7300;
   color: #fff;
@@ -335,9 +392,9 @@ body {
 }
 
 .new-task-btn {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+  position: fixed;
+  right: 25px;
+  bottom: 50px;
   background: linear-gradient(90deg, #c300ff 0%, #7e47ff 100%);
   color: #fff;
   border: none;
@@ -356,23 +413,7 @@ body {
   color: #fff;
 }
 
-.delete-task-btn {
-  margin-top: 5px;
-  padding: 8px;
-  background-color: #ff3b3b;
-  max-width: 100px;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.2s;
-}
 
-.delete-task-btn:hover {
-  background-color: #c40000;
-  color: white;
-}
 
 @media (max-width: 900px) {
   .board {

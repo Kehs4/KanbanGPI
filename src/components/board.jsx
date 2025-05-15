@@ -7,17 +7,73 @@ import ViewTask from "./viewtask";
 const Board = () => {
     const [columns, setColumns] = useState({
         todo: [
-            { id: 1, text: "Adicionar data/hora", description: "Adicionar data/hora nos cards." , status: "Em progresso", comments: [] },
+            {
+                id: 1,
+                text: "Adicionar data/hora",
+                description: "Adicionar data/hora nos cards.",
+                status: "Em progresso",
+                comments: [],
+                createdAt: "15/05/2025 10:00", // Adicionando data/hora de criação
+                updates: [], // Histórico de atualizações vazio inicialmente
+            },
         ],
         inProgress: [
-            { id: 2, text: "Configurar projeto", description: "Realizando a criação das funções." , status: "Em progresso", comments: ["Faltam alguns ajustes."] },
+            {
+                id: 2,
+                text: "Configurar projeto",
+                description: "Realizando a criação das funções.",
+                status: "Em progresso",
+                comments: ["Faltam alguns ajustes."],
+                createdAt: "15/05/2025 09:30",
+                updates: [{ date: "15/05/2025", time: "10:00", updatedBy: "Alice" }],
+            },
         ],
         done: [
-            { id: 3, text: "Implementar Board", description: "Criar os boards/cards." , status: "Finalizado", comments: ["Finalizado!"] },
-            { id: 4, text: "Criar página Task", description: "Criar a página de Tarefas da GPI." , status: "Finalizado", comments: ["Feito!"] },
-            { id: 5, text: "Criar componentes", description: "Criar as funções de board, card, modal." , status: "Finalizado", comments: ["Finalizado!"] },
-            { id: 6, text: "Criar modal", description: "Criar o modal ao clicar na task." , status: "Finalizado", comments: ["Feito!"] },
-            { id: 7, text: "Criar drag and drop", description: "Criar função de mover cards para outras colunas." , status: "Finalizado", comments: ["Feito!"] },
+            {
+                id: 3,
+                text: "Implementar Board",
+                description: "Criar os boards/cards.",
+                status: "Finalizado",
+                comments: ["Finalizado!"],
+                createdAt: "14/05/2025 14:00",
+                updates: [{ date: "14/05/2025", time: "16:00", updatedBy: "Bob" }],
+            },
+            {
+                id: 4,
+                text: "Criar página Task",
+                description: "Criar a página de Tarefas da GPI.",
+                status: "Finalizado",
+                comments: ["Feito!"],
+                createdAt: "14/05/2025 15:00",
+                updates: [],
+            },
+            {
+                id: 5,
+                text: "Criar componentes",
+                description: "Criar as funções de board, card, modal.",
+                status: "Finalizado",
+                comments: ["Finalizado!"],
+                createdAt: "14/05/2025 16:00",
+                updates: [],
+            },
+            {
+                id: 6,
+                text: "Criar modal",
+                description: "Criar o modal ao clicar na task.",
+                status: "Finalizado",
+                comments: ["Feito!"],
+                createdAt: "14/05/2025 17:00",
+                updates: [],
+            },
+            {
+                id: 7,
+                text: "Criar drag and drop",
+                description: "Criar função de mover cards para outras colunas.",
+                status: "Finalizado",
+                comments: ["Feito!"],
+                createdAt: "14/05/2025 18:00",
+                updates: [],
+            },
         ],
     });
 
@@ -45,6 +101,7 @@ const Board = () => {
 
     // Função para adicionar nova task
     const handleCreateTask = (newTask) => {
+        const now = new Date();
         setColumns((prev) => ({
             ...prev,
             todo: [
@@ -55,6 +112,8 @@ const Board = () => {
                     description: newTask.description || "",
                     status: newTask.status || "Aguardando",
                     comments: newTask.comments || [],
+                    createdAt: `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`, // Adicionando data/hora de criação
+                    updates: [], // Inicializando histórico de atualizações vazio
                 },
             ],
         }));
@@ -65,8 +124,8 @@ const Board = () => {
     const handleDeleteTask = (taskId) => {
         setColumns((prev) => {
             const newCols = { ...prev };
-            Object.keys(newCols).forEach(col => {
-                newCols[col] = newCols[col].filter(t => t.id !== taskId);
+            Object.keys(newCols).forEach((col) => {
+                newCols[col] = newCols[col].filter((t) => t.id !== taskId);
             });
             return newCols;
         });
@@ -79,7 +138,13 @@ const Board = () => {
             {["todo", "inProgress", "done"].map((colKey) => (
                 <Column
                     key={colKey}
-                    title={colKey === "todo" ? "Pendente" : colKey === "inProgress" ? "Em Progresso" : "Realizadas"}
+                    title={
+                        colKey === "todo"
+                            ? "Pendente"
+                            : colKey === "inProgress"
+                            ? "Em Progresso"
+                            : "Realizadas"
+                    }
                     cards={columns[colKey]}
                     columnKey={colKey}
                     moveCard={moveCard}
@@ -88,24 +153,26 @@ const Board = () => {
             ))}
             {selectedTask && (
                 <ViewTask
-                    task={selectedTask}
-                    onClose={() => setSelectedTask(null)}
-                    onUpdate={(updatedTask) => {
-                        setColumns((prev) => {
-                            const newCols = { ...prev };
-                            Object.keys(newCols).forEach(col =>
-                                newCols[col] = newCols[col].map(t => t.id === updatedTask.id ? updatedTask : t)
+                task={selectedTask}
+                onClose={() => setSelectedTask(null)}
+                onUpdate={(updatedTask) => {
+                    setColumns((prev) => {
+                        const newCols = { ...prev };
+                        Object.keys(newCols).forEach((col) => {
+                            newCols[col] = newCols[col].map((t) =>
+                                t.id === updatedTask.id ? updatedTask : t
                             );
-                            return newCols;
                         });
-                        setSelectedTask(updatedTask);
-                    }}
-                    onDelete={handleDeleteTask}
-                />
+                        return newCols;
+                    });
+                    setSelectedTask(updatedTask); // Atualiza a tarefa selecionada
+                }}
+                onDelete={handleDeleteTask}
+            />
             )}
             {isCreating && (
                 <ViewTask
-                    task={{ text: "", description:"", status: "Aguardando", comments: [] }}
+                    task={{ text: "", description: "", status: "Aguardando", comments: [] }}
                     onClose={() => setIsCreating(false)}
                     onUpdate={handleCreateTask}
                     isCreateMode
@@ -115,7 +182,6 @@ const Board = () => {
                 + Nova Task
             </button>
         </div>
-
     );
 };
 
