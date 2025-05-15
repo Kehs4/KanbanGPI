@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Archivo', sans-serif;
+}
+
+body {
+    background-image: url(/public/homebackground4.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.container-header {
+    background-color: rgb(255, 255, 255);
+    max-width: 90%;
+    margin: 15px auto;
+    height: 60px;
+    border-radius: 6px;
+    border: 1px solid rgb(53, 53, 53);
+    border-style: double;
+}
+
+.container-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 15px;
+
+}
+
+.title-header {
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 300;
+    text-shadow: 0px 1px 10px rgb(121, 118, 118);
+}
+
+.container-gpi {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30dvh;
+    gap: 15px;
+}
+
+.title-gpi {
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+    font-style: italic;
+    text-shadow: 0px 1px 10px rgb(59, 59, 59);
+}
+
+.btn-enter {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    padding: 16px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    border-radius: 15px;
+}
+
+.btn-enter:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.footer-vertis {
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    margin: auto;
+    font-style: italic;
+    bottom: 0;
+    background-color: rgba(224, 224, 224, 0.884);
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.footer-vertis::selection {
+    color: white;
+}
+
+.div-all-footer {
+    border-color: rgba(28, 40, 66, 0.842);
+    border-radius: 50px;
+    width: 75%;
+    margin: auto;
+    border-top: none;
+    border-bottom: none;
+    display: grid;
+    align-items: start;
+    justify-items: center;
+    justify-content: space-evenly;
+    p {
+        margin: 7px;
+        font-size: 17px;
+        font-weight: 300;
+    }
+
+    h1 {
+        font-size: 25px;
+        font-weight: 600;
+        text-shadow: -1px 3px rgba(247, 167, 155, 0.158);
+    }
+}
+
+.footer-logo {
+    display: grid;
+    grid-column: 1 / 1;
+    align-content: start;
+    margin-top: 10px;
+    color: black;
+    text-align: center;
+    p {
+        font-weight: 400;
+        color: rgba(44, 44, 44, 0.781);
+        text-shadow: -1px 1px rgba(0, 153, 255, 0.253);
+        font-size: 13px;
+    }
+}
+
+.footer-logo:hover {
+    transform: scale(1.02);
+    transition: 0.5s;
+    p {
+        color: rgb(235, 102, 24);
+    }
+}
+
+.footer-links {
+    display: grid;
+    grid-column: 2 / 3;
+    align-items: start;
+    margin-top: 10px;
+
+    h1 {
+        font-weight: 400;
+        margin-bottom: 10px;
+    }
+    a:hover {
+        transform: scaleX(1.02);
+        color: rgb(235, 102, 24);
+
+    }
+}
+
+.footer-infos {
+    grid-column: 3 / 3;
+    display: grid;
+    
+}
+
+.a-contact:hover {
+    transform: scale(1.007);
+    transition: 0.5s all;
+        color: rgb(235, 102, 24);
+        
+}
+
+.mail-svg:hover {
+    color: rgb(235, 102, 24);
+    transition: 0.5s all;
+}
+
+
+.time-svg {
+    display: flex;
+    align-items: center;
+}
+
+.mail-svg {
+    display: flex;
+    align-items: center;
+}
+
+.telefone-svg {
+    display: flex;
+    align-items: center;    
+}
+
+.a-whatsapp:hover {
+    transform: scale(1.007);
+    transition: 0.5s all;
+        color: rgb(235, 102, 24);
+        
+}
+
+.whatsapp-svg:hover {
+    color: rgb(235, 102, 24);
+    transition: 0.5s all;
+}
+
+.whatsapp-svg {
+    display: flex;
+    align-items: center;
+}
+
+.a-instagram:hover {
+    transform: scale(1.007);
+    transition: 0.5s all;
+        color: rgb(235, 102, 24);
+        
+}
+
+.instagram-logo:hover {
+    color: rgb(235, 102, 24);
+    transition: 0.5s all;
+}
+
+.instagram-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-local {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    font-weight: 200;
+    margin-top: 10px;
+    font-size: 13px;
+}
