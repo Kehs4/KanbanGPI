@@ -25,7 +25,6 @@ const Board = () => {
                 status: "Em progresso",
                 comments: ["Faltam alguns ajustes."],
                 createdAt: "15/05/2025 09:30",
-                updates: [{ date: "15/05/2025", time: "10:00", updatedBy: "Alice" }],
             },
         ],
         done: [
@@ -36,7 +35,6 @@ const Board = () => {
                 status: "Finalizado",
                 comments: ["Finalizado!"],
                 createdAt: "14/05/2025 14:00",
-                updates: [{ date: "14/05/2025", time: "16:00", updatedBy: "Bob" }],
             },
             {
                 id: 4,
@@ -113,7 +111,6 @@ const Board = () => {
                     status: newTask.status || "Aguardando",
                     comments: newTask.comments || [],
                     createdAt: `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`, // Adicionando data/hora de criação
-                    updates: [], // Inicializando histórico de atualizações vazio
                 },
             ],
         }));

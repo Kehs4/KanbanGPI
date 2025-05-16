@@ -49,6 +49,7 @@ function ViewTask({ task, onClose, onUpdate, isCreateMode, onDelete }) {
         <button className="close-btn" onClick={onClose}>X</button>
         {editMode ? (
           <>
+          <small>Tarefa:</small>
             <input
               value={text}
               onChange={(e) => setText(e.target.value)}
