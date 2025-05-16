@@ -10,20 +10,6 @@ const Card = ({ card, column, onClick }) => {
     }),
   });
 
-  // State to manage update history
-  const [updateHistory, setUpdateHistory] = useState(card.updates || []);
-
-  // Function to simulate an update
-  const handleUpdate = (updatedBy) => {
-    const now = new Date();
-    const newUpdate = {
-      date: now.toLocaleDateString(),
-      time: now.toLocaleTimeString(),
-      updatedBy,
-    };
-    setUpdateHistory([...updateHistory, newUpdate]);
-  };
-
   return (
     <div
       ref={drag}
@@ -45,8 +31,7 @@ const Card = ({ card, column, onClick }) => {
       )}
       <small>Status: {card.status}</small>
       
-      {/* Display creation date */}
-      <small>Criado às: {card.createdAt}</small>
+      <small>Criado em: {card.createdAt}</small>
 
     </div>
   );

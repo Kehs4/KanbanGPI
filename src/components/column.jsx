@@ -12,12 +12,31 @@ const Column = ({ title, cards, columnKey, moveCard, onCardClick }) => {
     },
   });
 
+  console.log(cards.map((card) => card.createdAt)); // Verifique os valores de createdAt
+
   return (
     <div ref={drop} className="column">
       <h2 className="column-title">{title}</h2>
-      {cards.map((card) => (
-        <Card key={card.id} card={card} column={columnKey} onClick={onCardClick} />
-      ))}
+      <div
+        className="column-cards"
+        style={{
+          maxHeight: "600px", // Limita a altura da coluna
+          overflowY: "auto", // Adiciona barra de rolagem vertical
+        }}
+      >
+        {cards
+          .sort((a, b) => {
+            // Converte as datas de criação para objetos Date
+            const dateA = new Date(a.createdAt);
+            const dateB = new Date(b.createdAt);
+
+            // Ordena os mais recentes (hoje ou futuros) acima dos mais antigos
+            return dateB - dateA;
+          })
+          .map((card) => (
+            <Card key={card.id} card={card} column={columnKey} onClick={onCardClick} />
+          ))}
+      </div>
     </div>
   );
 };

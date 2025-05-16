@@ -91,6 +91,8 @@ body {
 }
 
 .footer-vertis {
+    position: absolute;
+    width: 100%;
     padding: 10px;
     margin: auto;
     font-style: italic;
@@ -108,13 +110,13 @@ body {
 }
 
 .div-all-footer {
+    display: flex;
     border-color: rgba(28, 40, 66, 0.842);
     border-radius: 50px;
     width: 75%;
     margin: auto;
     border-top: none;
     border-bottom: none;
-    display: grid;
     align-items: start;
     justify-items: center;
     justify-content: space-evenly;

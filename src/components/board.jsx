@@ -142,7 +142,24 @@ const Board = () => {
                             ? "Em Progresso"
                             : "Realizadas"
                     }
-                    cards={columns[colKey]}
+                    cards={
+                        colKey === "done"
+                            ? [...columns[colKey]].sort((a, b) => {
+                                  // Converte o formato "DD/MM/YYYY HH:mm" para um formato válido para Date
+                                  const parseDate = (dateString) => {
+                                      const [day, month, yearAndTime] = dateString.split("/");
+                                      const [year, time] = yearAndTime.split(" ");
+                                      return new Date(`${year}-${month}-${day}T${time}`);
+                                  };
+
+                                  const dateA = parseDate(a.createdAt);
+                                  const dateB = parseDate(b.createdAt);
+
+                                  // Ordena os mais recentes no topo
+                                  return dateB - dateA;
+                              })
+                            : [...columns[colKey]] // Não aplica ordenação para outras colunas
+                    }
                     columnKey={colKey}
                     moveCard={moveCard}
                     onCardClick={setSelectedTask}

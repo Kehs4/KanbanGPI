@@ -49,7 +49,7 @@ function ViewTask({ task, onClose, onUpdate, isCreateMode, onDelete }) {
         <button className="close-btn" onClick={onClose}>X</button>
         {editMode ? (
           <>
-          <small>Tarefa:</small>
+          <small>Tarefa: {text}</small>
             <input
               value={text}
               onChange={(e) => setText(e.target.value)}
@@ -64,8 +64,8 @@ function ViewTask({ task, onClose, onUpdate, isCreateMode, onDelete }) {
               style={{ marginBottom: 12 }}
             />
             <select value={status} onChange={(e) => setStatus(e.target.value)}>
-              <option value="Aguardando">Aguardando</option>
-              <option value="Em progresso">Em Progresso</option>
+              <option value="Pendente">Pendente</option>
+              <option value="Em Progresso">Em Progresso</option>
               <option value="Finalizado">Finalizado</option>
             </select>
             <button className="task-save-btn" onClick={handleSave}>
